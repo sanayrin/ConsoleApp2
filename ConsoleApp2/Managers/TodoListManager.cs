@@ -1,6 +1,7 @@
 ﻿using ConsoleApp2.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,20 @@ namespace ConsoleApp2.Managers
                 }
             }
             Console.WriteLine("-------------------");
+        }
+        public void AddTask(string description)
+        {
+            if (!string.IsNullOrWhiteSpace(description))
+            {
+                _todolist.Add(new TodoItem(_nextId++,description));
+                Console.WriteLine("Task added successfully");
+            }
+            else
+            {
+                Console.WriteLine("Task description cannot be empty");
+            }
+
+            }
         }
     }
 }
